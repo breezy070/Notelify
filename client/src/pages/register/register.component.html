@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Notelify</h1>
+    <p>Already have an account ? <a routerLink="/">Log in !</a></p>
+    <form [formGroup]="registerForm">
+        <label for="firstname">First Name</label><br>
+        <input formControlName="firstname" type="text" id="firstname" name="firstname"><br>
+        <span *ngIf="registerForm.hasError('required', 'firstname') && registerForm.controls['firstname'].dirty" style="color: red;">*First Name is required</span>
+        
+        <label for="lastname">Last Name</label><br>
+        <input formControlName="lastname" type="text" id="lastname" name="lastname"><br>
+        <span *ngIf="registerForm.hasError('required', 'lastname') && registerForm.controls['lastname'].dirty" style="color: red;">*Last Name is required</span>
+
+        <label for="email">E-mail</label><br>
+        <input formControlName="email" type="text" id="email" name="email"><br>
+        <span *ngIf="registerForm.hasError('required', 'email') && registerForm.controls['email'].dirty" style="color: red;">*E-mail is required</span>
+        <span *ngIf="registerForm.hasError('email', 'email')" style="color: red;">*E-mail is invalid</span>
+
+        <label for="username">Username</label><br>
+        <input formControlName="username" type="text" id="username" name="username"><br>
+        <span *ngIf="registerForm.hasError('required', 'username') && registerForm.controls['username'].dirty" style="color: red;">*User Name is required</span>
+
+        <label for="password">Password</label><br>
+        <input formControlName="password" type="password" id="password" name="password"><br>
+        <span *ngIf="registerForm.hasError('required', 'password') && registerForm.controls['password'].dirty" style="color: red;">*Password is required</span>
+
+        <label for="confirmPassword">Confirm Password</label><br>
+        <input formControlName="confirmPassword" type="password" id="confirmPassword" name="confirmPassword" style="margin-bottom: 3em;">
+        <span *ngIf="registerForm.hasError('required', 'confirmPassword') && registerForm.controls['confirmPassword'].dirty" style="color: red;">*Confirm Password is required</span>
+        <span *ngIf="registerForm.hasError('confirmPasswordValidator', 'confirmPassword')" style="color: red;">*Password did not match !</span>
+        
+        <button [disabled]="registerForm.invalid" [class.disabled]="registerForm.invalid" (click)="register()" style="margin-bottom: 1em;">Sign up</button><br>
+        
+    </form>
+</div>

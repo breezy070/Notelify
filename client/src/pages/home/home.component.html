@@ -1,0 +1,141 @@
+<div class="side-panel-container">
+    <div class="side-panel">
+        <h1>Notelify</h1>
+        <div id="circle">
+            <i class="fa-solid fa-user fa-2xl"></i>
+        </div>
+        <a routerLink="/profile">My Profile</a>
+        <h2>Welcome, {{username}} !</h2>
+        <a [routerLink]="['/addnote']">Add new note +</a>
+        <button routerLink="/" (click)="logout()">Log out</button>
+    </div>
+</div>
+
+<div class="top-bar-container">
+    <div class="topbar">
+        <div class="seach-bar">
+            <form>
+                <input [(ngModel)]="tagInput" type="text" placeholder="Search by tags..." name="search-tag">
+                <button type="button"  (click)="searchByTag(tagInput)"><i class="fa-solid fa-magnifying-glass fa-sm" ></i></button>
+            </form>
+        </div>
+        <div class="filter-bar">
+            <label for="filters">Filter by:&nbsp;</label> 
+            <select name="filters" id="filters" [(ngModel)]="selectedFilter" (change)="filterNotes()"> 
+                <option value="all">All</option>
+                <option value="recent">Recent</option>
+                <option value="oldest">Oldest</option> 
+                <option value="favorites">Favorites</option> 
+            </select>
+        </div>
+    </div>
+</div>
+
+
+<div class="cards-container"  *ngIf="favoriteMode === false">
+    <div class="card-body"  *ngFor="let note of notes; let i = index">
+        <div class="card">
+            <div class="card-top">
+               
+                
+                <i (click)="toggleFavorite(note._id)" class="fa-solid fa-heart" *ngIf="note.isFavorite === true"></i>
+                <i (click)="toggleFavorite(note._id)" class="fa-regular fa-heart" *ngIf="note.isFavorite === false" ></i>
+                <i (click)="deleteNote(note._id)" class="fa-solid fa-circle-xmark"></i>
+
+                
+            </div>
+            <div class="title-date">
+                <h1>{{note.title}}</h1>
+                
+                <h3>{{note.createdAt | date:'yyyy-MM-dd'}}</h3>
+               
+              
+            </div>
+            <div class="noteId">
+                <p>{{note._id}}</p>
+            </div>
+
+            <p class="max-lines">{{note.message}}</p>
+            <div class="center">
+                <button [routerLink]="['/notepage', note._id]">READ MORE</button>
+               
+            </div>
+          
+        </div>
+    </div>
+
+
+</div>
+
+<div class="cards-container"  *ngIf="favoriteMode === true">
+    <div class="card-body" *ngFor="let favoriteNote of favoriteNotes; let i = index">
+        <div class="card">
+            <div class="card-top">
+               
+                
+                <i (click)="toggleFavorite(favoriteNote._id)" class="fa-solid fa-heart" *ngIf="favoriteNote.isFavorite === true"></i>
+                <i (click)="toggleFavorite(favoriteNote._id)" class="fa-regular fa-heart" *ngIf="favoriteNote.isFavorite === false" ></i>
+                <i (click)="deleteNote(favoriteNote._id)" class="fa-solid fa-circle-xmark"></i>
+
+                
+            </div>
+            <div class="title-date">
+                <h1>{{favoriteNote.title}}</h1>
+                
+                <h3>{{favoriteNote.createdAt | date:'yyyy-MM-dd'}}</h3>
+               
+              
+            </div>
+            <div class="noteId">
+                <p>{{favoriteNote._id}}</p>
+            </div>
+
+            <p class="max-lines">{{favoriteNote.message}}</p>
+            <div class="center">
+                <button [routerLink]="['/notepage', favoriteNote._id]">READ MORE</button>
+               
+            </div>
+          
+        </div>
+    </div>
+
+
+</div>
+
+<!-- <div class="cards-container"  *ngIf="tagMode === true && favoriteMode === false">
+    <div class="card-body" *ngFor="let taggedNote of taggedNotes; let i = index">
+        <div class="card">
+            <div class="card-top">
+               
+                
+                <i (click)="toggleFavorite(taggedNote._id)" class="fa-solid fa-heart" *ngIf="taggedNote.isFavorite === true"></i>
+                <i (click)="toggleFavorite(taggedNote._id)" class="fa-regular fa-heart" *ngIf="taggedNote.isFavorite === false" ></i>
+                <i (click)="deleteNote(taggedNote._id)" class="fa-solid fa-circle-xmark"></i>
+
+                
+            </div>
+            <div class="title-date">
+                <h1>{{taggedNote.title}}</h1>
+                
+                <h3>{{taggedNote.createdAt | date:'yyyy-MM-dd'}}</h3>
+               
+              
+            </div>
+            <div class="noteId">
+                <p>{{taggedNote._id}}</p>
+            </div>
+
+            <p class="max-lines">{{taggedNote.message}}</p>
+            <div class="center">
+                <button [routerLink]="['/notepage', taggedNote._id]">READ MORE</button>
+               
+            </div>
+          
+        </div>
+    </div>
+
+
+</div> -->
+
+
+

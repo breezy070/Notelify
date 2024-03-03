@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 *ngIf="note">{{note.title}}</h1>
+    <form [formGroup]="editNoteForm" >
+        <label for="title">Title</label><br>
+        <input  formControlName="title" type="text" id="title" name="title"  *ngIf="note" [value]="note.title" ><br>
+        
+        <label for="message">Message</label><br>
+        <textarea  formControlName="message" name="message" id="message" cols="30" rows="10" *ngIf="note" [value]="note.message"  style="margin-bottom: 1em;"></textarea>
+     
+        <button *ngIf="editMode === false" type="button" style="margin-bottom: 1em;" (click)="toggleEditMode()">MODIFY</button><br>
+        <button *ngIf="editMode === true" type="button" style="margin-bottom: 1em;" (click)="editNoteAction()">SAVE</button><br>
+        <button *ngIf="editMode === true" type="button" style="margin-bottom: 1em;" (click)="toggleEditMode()">CANCEL</button><br>
+
+        <button [routerLink]="['/home']" style="margin-bottom: 1em;">HOME</button><br>
+
+       
+        
+    </form>
+</div>
+

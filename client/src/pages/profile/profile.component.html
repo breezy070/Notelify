@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Notelify</h1>
+    <form>
+        <label for="firstname">First Name</label><br>
+        <input type="text" id="firstname" name="firstname" [value]="users.firstName" disabled><br>
+        
+        <label for="lastname">Last Name</label><br>
+        <input type="text" id="lastname" name="lastname" [value]="users.lastName" disabled><br>
+
+        <label for="email">E-mail</label><br>
+        <input type="text" id="email" name="email" style="margin-bottom: 4em;" [value]="users.email" disabled><br>
+     
+        <!-- <button type="submit" style="margin-bottom: 1em;">MODIFY</button><br> -->
+        <button [routerLink]="['/forget-password']" style="margin-bottom: 3em;">CHANGE PASSWORD</button><br>
+
+        <button [routerLink]="['/home']" style="margin-bottom: 1em;">HOME</button><br>
+
+       
+        
+    </form>
+</div>

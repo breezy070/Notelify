@@ -1,0 +1,277 @@
+/* ________________START____________________SIDE BAR CSS _______*/
+
+.side-panel-container {
+    height: 100vh;
+    width: 380px;
+    background-color: blue;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.side-panel > h1 {
+    color: white;
+    font-size: 64px;
+    font-family: 'VT323', monospace;
+    font-weight: 400;
+}
+
+
+#circle {
+    background: rgb(181, 180, 180);
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-user {
+    font-size: 130px;
+    color: black;
+}
+
+.side-panel > a {
+    text-decoration: none;
+    color: white;
+    font-size: 45px;
+}
+
+.side-panel > a:nth-child(5) {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+}
+
+.side-panel > h2 {
+    color: white;
+    font-size: 40px;
+    font-weight: 400;
+    /* letter-spacing: .1rem; */
+}
+
+.side-panel > button {
+    background-color: red;
+    border-radius: 5px;
+    border: hidden;
+    width: 230px;
+    height: 50px;
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.side-panel > button:active {
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    transform: translateY(4px); 
+}
+
+/* ______________END____________SIDE BAR CSS _______*/
+/* ______________START____________TOP BAR CSS _______*/
+
+.top-bar-container {
+    width: calc(100% - 380px);
+    position: absolute;
+    right: 0;
+    height: 80px;
+    background-color: #F55B5B;
+    top: 0;
+
+}
+
+.topbar {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+form > input {
+    border-radius: 5px;
+    border: none;
+}
+
+form > input::placeholder {
+
+    color: black;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5em;
+}
+
+
+
+form > button {
+    background-color: transparent;
+    border: none;
+}
+
+form > button:active {
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    /* transform: translateY(4px); */
+    font-size: larger;
+   
+}
+
+.filter-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+}
+
+.filter-bar > select {
+    width: 150px;
+    text-align: center;
+}
+
+
+/* ______________END____________TOP BAR CSS _______*/
+/* ______________START____________NOTES CSS _______*/
+
+
+.cards-container {
+    position: absolute;
+    top: 80px;
+    left: 340px;
+    height:80%;
+    width:80%;
+    overflow-y: scroll;
+    padding: 2em;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+
+    padding: 3em;
+}
+/* HIDE SCROLL BAR WITHOUT DISABLING SCROLL */
+.cards-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.card-body {
+    width: 250px;
+    height: 365px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1em;
+
+}
+
+@media (min-width: 900px) {
+
+    .cards-container {
+        position: absolute;
+        top: 80px;
+        left: 500px;
+        height:80%;
+        width:50%;
+        overflow-y: scroll;
+        padding: 2em;
+    
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2em;
+        justify-content: center;
+    
+        padding: 3em;
+    }
+    .card-body {
+        width: 200px;
+        height: 265px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 1em;
+    
+    }
+  }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+
+}
+
+.card-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+.title-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+.card .fa-heart{
+    color: red;
+}
+
+.center > button {
+    background-color: #0000FF;
+    height: 60px;
+    width: 215px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: 'VT323', monospace;
+    font-weight: 400;
+    font-size: 24px;
+    cursor: pointer;   
+}
+
+.center > button:active {
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    transform: translateY(4px);
+   
+}
+
+.center  {
+    display: flex;
+    justify-content: center;
+}
+
+.max-lines {
+    display: block;/* or inline-block */
+    text-overflow:ellipsis;
+    /* word-wrap: break-word; */
+    overflow: hidden;
+    /* max-height: 5.6em;
+    line-height: 1.8em; */
+    -webkit-line-clamp: 3;
+    white-space: nowrap;
+}
+
+
+
+
+/* ______________END____________NOTES CSS _______*/
+

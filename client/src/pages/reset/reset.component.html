@@ -1,0 +1,15 @@
+
+<div class="container">
+    <h1>Notelify - Password Reset</h1>
+    <form [formGroup]="resetForm">
+      
+        <input formControlName="password" type="password" id="password" name="password" placeholder="password"><br>
+        <span *ngIf="resetForm.hasError('required', 'password') && resetForm.controls['password'].dirty" style="color: red;">*Password is required</span>
+      
+        <input formControlName="Confirmpassword" type="password" id="Confirmpassword" name="Confirmpassword" placeholder="Confirm Password" style="margin-bottom: 4em;"><br>
+        <span *ngIf="resetForm.hasError('required', 'Confirmpassword') && resetForm.controls['Confirmpassword'].dirty" style="color: red;">*Confirm Password is required</span>
+        <span *ngIf="resetForm.hasError('confirmPasswordValidator', 'Confirmpassword')" style="color: red;">*Password did not match !</span>
+        <button type="submit" style="margin-bottom: 1em;"  [disabled]="resetForm.invalid" [class.disabled]="resetForm.invalid" (click)="reset()">Submit</button><br>
+        
+    </form>
+</div>

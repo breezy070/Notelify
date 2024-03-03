@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Create a new Note !</h1>
+
+    <form [formGroup]="addNoteForm">
+        <label for="title">Title</label><br>
+        <input formControlName="title" type="text" id="title" name="title"><br>
+      
+        <label for="message">Message</label><br>
+        <textarea formControlName="message" name="message" id="message" cols="30" rows="10"></textarea><br>
+
+        <label for="tags">Tag Words:</label><br>
+        <input formControlName="tags" type="text" id="tags" name="tags"><br>
+
+        <button (click)="createNoteAction()">CREATE</button><br>
+        <button [routerLink]="['/home']" style="margin-bottom: 1em;">HOME</button><br>
+    </form>
+</div>
